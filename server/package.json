@@ -4,12 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "config": {
-    "port": ""
+    "port": 3001
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "http-proxy": "^1.17.0",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-logger": "^3.2.0",
+    "koa-router-decors": "^4.0.1",
+    "koa-xtime": "^1.0.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
   }
 }
