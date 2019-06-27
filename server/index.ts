@@ -24,6 +24,6 @@ app.use(logger());
 app.use(timing());
 app.use(bodify());
 
-app.use(router.load('/api', `${__dirname}/router`, {extname: '.{ts,js}'}).routes());
+app.use(router.load('', `${__dirname}/router`, {extname: '.{ts,js}'}).routes());
 app.listen(proxyPort);
 console.warn(`Server started: http://localhost:${chalk.red('' + port)}`);
