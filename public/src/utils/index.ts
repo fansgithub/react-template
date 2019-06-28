@@ -81,7 +81,7 @@ export function queryArray<T>(array: any[], key: string, keyAlias = 'key'): T {
     return null
 }
 
-export default{
+export default {
     setCookie,
     getCookie,
     clearCookie,
