@@ -12,9 +12,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "config": {
-    "dependencies": ["public", "server"],
-    "package.json": ["public", "server"]
-  }
+  "license": "ISC"
 }
