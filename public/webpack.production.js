@@ -3,17 +3,16 @@ const base = require('./webpack.base.js')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+let plugins = [new CleanWebpackPlugin()];
+if(process.env.Bundle_ANALYZER === 'true'){
+    plugin = [new BundleAnalyzerPlugin()]
+}
 
 module.exports = smart(base, {
     mode: 'production',
-    plugins: [
-        new CleanWebpackPlugin(),
-        // new CopyWebpackPlugin([{
-        //     from: './src/assets',
-        //     to: 'assets'
-        // }])
-    ],
+    plugins,
     optimization: {
         minimizer: [
             new TerserJSPlugin({}),
