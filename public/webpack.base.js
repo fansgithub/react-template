@@ -3,7 +3,6 @@ const path = require('path')
 const gitRevision = require('git-revision');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const tsImportPluginFactory = require('ts-import-plugin')
 const webpack = require('webpack')
 const Happypack = require('happypack')
 
@@ -18,8 +17,8 @@ module.exports = {
     resolve: {
         modules: [path.resolve('node_modules')],
         alias: {//别名
-            // 'utils': path.join(__dirname, './src/utils/index.ts'),
-            'Ajax': path.join(__dirname, './src/services/index.ts'),
+            'utils': path.join(__dirname, './src/utils/index.ts'),
+            'ajax': path.join(__dirname, './src/services/index.ts'),
             '@components': path.join(__dirname, './src/components'),
             '@views': path.join(__dirname, './src/views'),
             '@theme': path.join(__dirname, './src/styles/theme.less'),
@@ -81,8 +80,8 @@ module.exports = {
             favicon: './src/assets/images/favicon.ico',
             hash: true,
             minify: {
-                // removeAttributeQuotes: true,
-                // collapseWhitespace: true,
+                removeAttributeQuotes: true,
+                collapseWhitespace: true,
             },
             chunks: ['index'],
             banner: {

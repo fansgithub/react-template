@@ -11,11 +11,10 @@
         "paths": {
             "@components/*": ["components/*"],
             "@views/*": ["views/*"],
-            "Ajax": ["services/index"],
-            "utils": ["utils"]
+            "ajax": ["services/index"],
+            "utils": ["utils/index"]
         },
         "jsx": "react",
-        "allowJs": true,
         "alwaysStrict": true,
         "noUnusedLocals": true,
         "importHelpers": true,

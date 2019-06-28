@@ -1,30 +1,28 @@
-import { observable, action } from 'mobx';
-import Ajax from 'Ajax';
+import { observable, action } from 'mobx'
+import ajax from 'ajax'
 
 class AuthStore {
-    /**
-     * 用户信息
-     *
-     * @type {IAuthStore.UserInfo}
-     * @memberof AuthStore
-     */
+	/**
+	 * 用户信息
+	 *
+	 * @type {IAuthStore.UserInfo}
+	 * @memberof AuthStore
+	 */
     @observable
-    userInfo = ''
-
+    userInfo = { name: 'zhangsan' }
     @action
     login = async (params): Promise<any> => {
         try {
-            const res = await Ajax.post('auth/login', params || {})
-            if(res){
+            const res = await ajax.post('auth/login', params || {})
+            if (res) {
                 location.href = '#/home'
             }
         } catch (err) {
             console.error(err)
         }
     }
-
     logout = () => {
-        
+
     }
 }
 
