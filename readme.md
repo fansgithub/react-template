@@ -6,7 +6,7 @@
 public             --前端代码
 ├── node_modules   --公共依赖库
 ├── @types         --模块类型声明文件
-├── build         --生成的打包文件
+├── build          --生成的打包文件
 └── src            --源码目录
   ├── assets         --引用的静态文件
   ├── components   --复用业务组件
@@ -16,7 +16,7 @@ public             --前端代码
   ├── utils        --公共方法
   ├── index.less   --入口样式文件
   └── index.tsx    --入口文件
-server     --模拟服务（用于本地调试，自动构建忽略）
+server             --模拟服务（用于本地调试，自动构建忽略）
 ├── node_modules   --公共依赖库
 ├── router         --各个模块的模拟接口
 ├── config.ts      --入口样式文件
