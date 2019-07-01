@@ -3,6 +3,7 @@ const path = require('path')
 const gitRevision = require('git-revision');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 const webpack = require('webpack')
 const Happypack = require('happypack')
 
@@ -62,6 +63,9 @@ module.exports = {
         }]
     },
     plugins: [
+        new webpack.DllReferencePlugin({
+            manifest: require('./dll/react.manifest.json')
+        }),
         new webpack.DefinePlugin({
             DEV: JSON.stringify('dev')
         }),
@@ -89,6 +93,9 @@ module.exports = {
                 tag: gitRevision('tag'),
                 date: new Date().toLocaleString(),
             },
+        }),
+        new AddAssetHtmlPlugin({
+            filepath: path.resolve(__dirname, './dll/**/*.js')
         }),
     ]
 }
