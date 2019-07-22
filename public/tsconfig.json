@@ -9,10 +9,16 @@
         "rootDirs": ["./src"],
         "baseUrl": "./src",
         "paths": {
+            "@constants/*": ["constants/*"],
             "@components/*": ["components/*"],
+            "@services/*": ["services/*"],
+            "@shared/*": ["shared/*"],
             "@views/*": ["views/*"],
-            "ajax": ["services/index"],
-            "utils": ["utils/index"]
+            "@store/*": ["store/*"],
+            "@utils/*": ["utils/*"],
+            "@locales/*": ["locales/*"],
+            "@theme": ["styles/theme.less"],
+            "ajax": ["services/index"]
         },
         "jsx": "react",
         "alwaysStrict": true,

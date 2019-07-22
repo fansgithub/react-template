@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash'
+
 /**
  * setCookie
  *
@@ -81,10 +83,45 @@ export function queryArray<T>(array: any[], key: string, keyAlias = 'key'): T {
     return null
 }
 
+
+/**
+ * 数组格式转树状结构
+ *
+ * @export
+ * @template T
+ * @param {any[]} array
+ * @param {string} [id='id']
+ * @param {string} [pid='pid']
+ * @param {string} [children='children']
+ * @returns {T[]}
+ */
+export function arrayToTree<T>(array: any[], id = 'id', pid = 'pid', children = 'children'): T[] {
+    const data = cloneDeep(array)
+    const result = []
+    const hash = {}
+    data.forEach((_, index) => {
+        hash[data[index][id]] = data[index]
+    })
+    data.forEach(item => {
+        const hashVP = hash[item[pid]]
+        if (hashVP) {
+            if (!hashVP[children]) {
+                hashVP[children] = []
+            }
+            hashVP[children].push(item)
+        } else {
+            result.push(item)
+        }
+    })
+    return result
+}
+
+
 export default {
     setCookie,
     getCookie,
     clearCookie,
     queryURL,
-    queryArray
+    queryArray,
+    arrayToTree
 }

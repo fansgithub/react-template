@@ -4,6 +4,7 @@ const gitRevision = require('git-revision');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const webpack = require('webpack')
 const Happypack = require('happypack')
 
@@ -17,12 +18,24 @@ module.exports = {
     },
     resolve: {
         modules: [path.resolve('node_modules')],
+        plugins: [
+            new TsconfigPathsPlugin({
+                configFile: path.resolve('tsconfig.webpack.json'),
+                extensions: ['.tsx', '.ts', '.js', '.less', '.json']
+            })
+        ],
         alias: {//别名
-            'utils': path.join(__dirname, './src/utils/index.ts'),
-            'ajax': path.join(__dirname, './src/services/index.ts'),
-            '@components': path.join(__dirname, './src/components'),
-            '@views': path.join(__dirname, './src/views'),
-            '@theme': path.join(__dirname, './src/styles/theme.less'),
+            // 'utils': path.join(__dirname, './src/utils/index.ts'),
+            // 'ajax': path.join(__dirname, './src/services/index.ts'),
+            // '@components': path.join(__dirname, './src/components'),
+            // '@shared': path.join(__dirname, './src/shared'),
+            // '@views': path.join(__dirname, './src/views'),
+            // "@constants": path.join(__dirname, './src/constants'),
+            // "@services": path.join(__dirname, './src/services'),
+            // "@store": path.join(__dirname, './src/store'),
+            // "@locales": path.join(__dirname, './src/locales'),
+            // "@utils": path.join(__dirname, './src/utils'),
+            // '@theme': path.join(__dirname, './src/styles/theme.less'),
         },
         extensions: ['.tsx', '.ts', '.js', '.less', '.json'], //扩展名，依次查找
     },
