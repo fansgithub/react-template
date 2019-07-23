@@ -23,13 +23,13 @@ const Login = Loadable({
     loading: PageLoading
 })
 
-const AppWrapper = ({ children }: { children?: React.ReactNode }) => <div className="appWrapper">{children}</div>
-
 function App() {
     return (
         <Provider>
+            {/* 将页面的store通过context API 传递下去 */}
             <IntlWrapper>
-                <AppWrapper>
+                {/* alibaba 多语言切换组件 */}
+                <div className="appWrapper">
                     <Router history={history}>
                         <HashRouter>
                             <Switch>
@@ -39,7 +39,7 @@ function App() {
                             </Switch>
                         </HashRouter>
                     </Router>
-                </AppWrapper>
+                </div>
             </IntlWrapper>
         </Provider>
     )
