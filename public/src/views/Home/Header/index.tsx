@@ -8,7 +8,7 @@ import './index.less'
 function Header() {
     const { globalStore, authStore } = useRootStore()
     return (
-        <Layout.Header className="header">
+        <Layout.Header className="home-header">
             <Icon
                 className="trigger"
                 type={globalStore.sideBarCollapsed ? 'menu-unfold' : 'menu-fold'}

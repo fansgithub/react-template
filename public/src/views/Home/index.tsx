@@ -14,7 +14,7 @@ function Home() {
             <Sider />
             <Layout>
                 <Header />
-                <Layout.Content className="content">
+                <Layout.Content className="home-content">
                     <Router>
                         <Switch>
                             {menu.map(m => {

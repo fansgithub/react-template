@@ -7,9 +7,11 @@ import './index.less'
 
 export default function Users() {
     return (
-        <div className="container">
+        <div className="header-container">
             <Header />
-            <AutoSizer className="tableBox">{({ height }) => <UserTable scrollY={height - 120} />}</AutoSizer>
+            <AutoSizer className="tableBox">
+                {({ height }) => <UserTable scrollY={height - 120} />}
+            </AutoSizer>
         </div>
     )
 }
